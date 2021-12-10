@@ -3,6 +3,6 @@ try:
     num2=int(input("Enter n2: "))
     print(num1+num2)
 except Exception as e:
-    print(e)
+    print("ERROR: ",e)
 
 print("Some lines to be executed")        
