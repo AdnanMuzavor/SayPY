@@ -1,2 +1,1 @@
-This is the file
-This will is used to learn read and write in python
+Writing in a file
