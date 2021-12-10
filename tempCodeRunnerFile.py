@@ -1,10 +1,10 @@
-#getting the file in write method
-# f=open("learnfile.txt","w")
-# #it'll clear content of the file
-# f.write("Writing in a file")
-# #closing file
-# f.close()
-
-# f=open("newfile.txt","w") #this file is not pre-made but il'll get created
-# f.write("File created by py")
-# f.close()
+else:
+#     i = n
+#     j = n
+#     while i!=0:
+#         j = n
+#         while j!=0:
+#             print(" * ", end="")
+#             j -= 1
+#     print("\n")
+#     i -= 1
