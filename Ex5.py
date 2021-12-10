@@ -1,0 +1,65 @@
+name = int(input("Enter :\n1 for Harry\n2 for Rohan\n3 for Hammad\n"))
+activity = int(input("Enter: \n1 to enter diet\n2 to enter exercise\n"))
+
+
+def getdata():
+    import datetime
+    return datetime.datetime.now()
+
+
+if name == 1 and activity == 1:
+    f = open("Ex5File1.txt", "a")
+    diet = input("Enter diet: ")
+    f.write("\n[ " + str(getdata()) + " ]"+diet+"\n")
+    print("Displaying file content:\n")
+    f.seek(0)
+    f.close()
+    f = open("Ex5File1.txt", "rt")
+    print(f.read())
+    f.close()
+elif name == 1 and activity == 2:
+    f = open("Ex5File2.txt", "a")
+    ex = input("Enter ex: ")
+    f.write("\n[ " + str(getdata()) + " ]"+ex)
+    print("Displaying file content:\n")
+    f.seek(0)
+    f.close()
+    f = open("Ex5File2.txt", "rt")
+    print(f.read())
+    f.close()
+elif name == 2 and activity == 1:
+    f = open("Ex5File3.txt", "a")
+    diet = input("Enter diet: ")
+    f.write("\n[ " + str(getdata()) + " ]"+diet+"\n")
+    f.seek(0)
+    f.close()
+    f = open("Ex5File3.txt", "rt")
+    print(f.read())
+    f.close()
+elif name == 2 and activity == 2:
+    f = open("Ex5File4.txt", "a")
+    ex = input("Enter ex: ")
+    f.write("\n[ " + str(getdata()) + " ]"+ex)
+    f.seek(0)
+    f.close()
+    f = open("Ex5File4.txt", "rt")
+    print(f.read())
+    f.close()
+elif name == 3 and activity == 1:
+    f = open("Ex5File5.txt", "a")
+    diet = input("Enter diet: ")
+    f.write("\n[ " + str(getdata()) + " ]"+diet+"\n")
+    f.seek(0)
+    f.close()
+    f = open("Ex5File5.txt", "rt")
+    print(f.read())
+    f.close()
+elif name == 3 and activity == 2:
+    f = open("Ex5File6.txt", "a")
+    ex = input("Enter ex: ")
+    f.write("\n[ " + str(getdata()) + " ]"+ex)
+    f.seek(0)
+    f.close()
+    f = open("Ex5File6.txt", "rt")
+    print(f.read())
+    f.close()
