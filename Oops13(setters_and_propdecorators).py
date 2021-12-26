@@ -67,3 +67,6 @@ Harry.printdetails()
 del Harry.email
 Harry.printdetails()
 """This will not give an error saying "Can't delete attribute email" as email.deleter is now defined for property email """
+
+Harry.email = "Harry.Rohan@gmail.com"
+Harry.printdetails()
