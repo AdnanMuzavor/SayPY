@@ -1,3 +1,6 @@
+import time
+
+
 class Library:
     def __init__(self, name):
         self.name = name
@@ -12,18 +15,65 @@ class Library:
         for i in range(int(count1)):
             book = input(f"Enter book no {i+1}: ")
             author = input(f"Enter author no {i+1}: ")
-            self.books[author] = [book, "No"]
+            self.books[author] = [book, "No", " - ", " - ", " - "]
         self.display()
 
     def addtoexisting(self):
         book = input(f"Enter book : ")
         author = input(f"Enter author : ")
-        self.books[author] = [book, "No"]
+        self.books[author] = [book, "No", " - ", " - ", " - "]
 
     def display(self):
-        print("Author\tBook\tBorrowed")
+        print("\t\tAuthor\tBook\tBorrowed\tTaken\tLast borrowed\tLast Returned")
         for key, item in self.books.items():
-            print(f"{key}\t{item[0]}\t{item[1]} ")
+            print(
+                f"\t\t{key}\t{item[0]}\t{item[1]}\t{item[2]}\t\t{item[3]}\t\t{item[4]} ")
+
+    def borrow(self):
+        flag = 0
+        search = ""
+        while flag == 0:
+            self.display()
+            search = input("\t\tEnter Author or Book name: ")
+            for author, booklist in self.books.items():
+                if search == author or search == booklist[0]:
+                    print("\t\t\t\tBook Found\t\t\t\t")
+                    flag = 1
+                    break
+                else:
+                    print("\t\tBook not found,Plz re-enter\t\t")
+                    break
+        boroowername = input("Enter Your name: ")
+        timeis = time.time()
+        print(
+            f"\t\tValid Borrower\t\t, Book borrowed by {boroowername} on {timeis}")
+        self.books[search][2] = boroowername
+        self.books[search][3] = timeis
+        self.books[search][1] = "Yes"
+
+    def returnbook(self):
+        flag = 0
+        search = ""
+        while flag == 0:
+            self.display()
+            search = input(
+                "\t\tEnter Author or Book name you want to return: ")
+            for author, booklist in self.books.items():
+                if (search == author or search == booklist[0]) and booklist[1] == "Yes":
+                    print("\t\t\t\tBook Found\t\t\t\t")
+                    flag = 1
+                    break
+                else:
+                    print("\t\tBook not found,Plz re-enter\t\t")
+                    break
+        boroowername = input("Enter Your name: ")
+        if self.books[search][2] == boroowername:
+            timeis = time.time()
+            print(
+                f"\t\tValid Borrower\t\t, Book returned by {boroowername} on {timeis}")
+            self.books[search][2] = " - "
+            self.books[search][1] = "No"
+            self.books[search][4] = timeis
 
 
 while True:
@@ -34,9 +84,11 @@ while True:
     elif int(n) == 2:
         l1.display()
     elif int(n) == 3:
-        print("Borrowing")
+        print("\t\tBorrowing Section\t\t")
+        l1.borrow()
     elif int(n) == 4:
-        print("Returning")
+        print("\t\tReturning\t\t")
+        l1.returnbook()
     elif int(n) == 5:
         l1.addtoexisting()
     elif int(n) == 6:
