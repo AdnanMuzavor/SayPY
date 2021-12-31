@@ -1,4 +1,7 @@
 import time
+from datetime import date
+
+today = date.today()
 
 
 class Library:
@@ -24,10 +27,10 @@ class Library:
         self.books[author] = [book, "No", " - ", " - ", " - "]
 
     def display(self):
-        print("\t\tAuthor\tBook\tBorrowed\tTaken\tLast borrowed\tLast Returned")
+        print("\t\tAuthor\t\t\tBook\t\t\tBorrow\t\t\tTaken\t\t   Last borrowed\t\t    Last Returned")
         for key, item in self.books.items():
             print(
-                f"\t\t{key}\t{item[0]}\t{item[1]}\t{item[2]}\t\t{item[3]}\t\t{item[4]} ")
+                f"\t\t{key}\t\t\t{item[0]}\t\t\t{item[1]}\t\t\t{item[2]}\t\t      {item[3]}\t\t     {item[4]} ")
 
     def borrow(self):
         flag = 0
@@ -36,15 +39,24 @@ class Library:
             self.display()
             search = input("\t\tEnter Author or Book name: ")
             for author, booklist in self.books.items():
-                if search == author or search == booklist[0]:
-                    print("\t\t\t\tBook Found\t\t\t\t")
-                    flag = 1
-                    break
+                if (search == author or search == booklist[0]):
+                    if booklist[1] == "No":
+                        print("\t\t\t\tBook Found\t\t\t\t")
+                        flag = 1
+                        break
+                    else:
+                        print(
+                            f"Book found but is being borrowed on {self.books[search][3]},Take some other book you interested in.")
+                        return
+
                 else:
                     print("\t\tBook not found,Plz re-enter\t\t")
                     break
         boroowername = input("Enter Your name: ")
-        timeis = time.time()
+
+        # dd/mm/YY
+        d1 = today.strftime("%d/%m/%Y")
+        timeis = d1
         print(
             f"\t\tValid Borrower\t\t, Book borrowed by {boroowername} on {timeis}")
         self.books[search][2] = boroowername
@@ -59,21 +71,29 @@ class Library:
             search = input(
                 "\t\tEnter Author or Book name you want to return: ")
             for author, booklist in self.books.items():
-                if (search == author or search == booklist[0]) and booklist[1] == "Yes":
-                    print("\t\t\t\tBook Found\t\t\t\t")
-                    flag = 1
-                    break
+                if (search == author or search == booklist[0]):
+                    if booklist[1] == "Yes":
+                        print("\t\t\t\tBook Found\t\t\t\t")
+                        flag = 1
+                        break
+                    else:
+                        print("Book with this name was not borrowed")
+
                 else:
                     print("\t\tBook not found,Plz re-enter\t\t")
                     break
         boroowername = input("Enter Your name: ")
         if self.books[search][2] == boroowername:
-            timeis = time.time()
+            # dd/mm/YY
+            d1 = today.strftime("%d/%m/%Y")
+            timeis = d1
             print(
                 f"\t\tValid Borrower\t\t, Book returned by {boroowername} on {timeis}")
             self.books[search][2] = " - "
             self.books[search][1] = "No"
             self.books[search][4] = timeis
+        else:
+            print("Invalid borrower details")
 
 
 while True:
