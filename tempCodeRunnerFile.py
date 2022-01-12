@@ -1,5 +1,2 @@
-@property
-    # def books(self):
-    #     print(f"Library with books:")
-    #     for item in self.books:
-    #         print(item)
+print(f.readline())
+# print(f.readline())

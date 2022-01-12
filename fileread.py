@@ -10,8 +10,9 @@
 f = open("learnfile.txt", "rt")  # by default read mode "rt"
 
 """METHOD-1"""
-# for reading content of the file
-# content=f.read()
+# for reading content of the file(entire)
+
+# content = f.read()
 # print(content)
 
 """METHOD-2"""
@@ -28,21 +29,29 @@ f = open("learnfile.txt", "rt")  # by default read mode "rt"
 
 """METHOD-3"""
 # reading line by line
-# content=f.read()
-# for line in content: # '/n' helps in identifying new line
+# content = f.read()
+# for line in content:  # '/n' helps in identifying new line
 #     print(line)
 
-# """reading directly from file using f pointer"""
+"""reading directly from file using f pointer"""
 # for line in f:
-#     print(line,end="")
+#     print(line, end="")
 
 """METHOD-4"""
+
+# # for opening a file
+# f = open("learnfile.txt", "rt")  # by default read mode "rt"
+
 # #Using readline function
 # print(f.readline())
 # print(f.readline())
 
+
+# # for opening a file
+# f = open("learnfile.txt", "rt")  # by default read mode "rt"
+
 # converting lines in file as list items
-print(f.readlines())
+# print(f.readlines())
 # closing a file
 f.close()  # to free all resources acting on file
 

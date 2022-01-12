@@ -5,8 +5,8 @@ for i in l1:
 #Handling list of list
 l2 = [["hello", 2], ["rello", 4], ["vello", 8], ["dello", 10]]
 print(l2)
-for itm, cnt in l2:
-    print(itm, "->", cnt)
+for  itm, cnt in enumerate(l2):
+    print("index:","itm: ",itm, "->", cnt[0],cnt[1])
 
 #typacasting list to dictionary
 dict = dict(l2)
