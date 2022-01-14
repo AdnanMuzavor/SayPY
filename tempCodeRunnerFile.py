@@ -1,6 +1,4 @@
-file = "mycar.pkl"
-# fileobj = open(file, 'rb')  # 'rb'-> read binary mode
-# mycars = pickle.load(fileobj)
-# print(mycars)
-# print(type(mycars))
-# fileobj.close()
+mystrnew = re.compile(r'ai*')  # '^' stands for any first word of string
+# matches = mystrnew.finditer(mystr)
+# for match in matches:
+#     print(match)  
